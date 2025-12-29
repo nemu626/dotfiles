@@ -76,6 +76,9 @@ create_link "$DOTFILES_DIR/starship/starship.toml" "$CONFIG_DIR/starship.toml"
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 create_link "$DOTFILES_DIR/zsh" "$CONFIG_DIR/zsh"
 
+# Sheldon
+create_link "$DOTFILES_DIR/sheldon" "$CONFIG_DIR/sheldon"
+
 # Neovim
 if [[ -d "$DOTFILES_DIR/nvim" ]] && [[ -n "$(ls -A "$DOTFILES_DIR/nvim" 2>/dev/null)" ]]; then
     create_link "$DOTFILES_DIR/nvim" "$CONFIG_DIR/nvim"

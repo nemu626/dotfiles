@@ -45,6 +45,7 @@ packages=(
     # Shell
     zsh
     starship
+    sheldon
     
     # Utilities
     grim

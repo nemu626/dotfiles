@@ -1,0 +1,82 @@
+# Sheldon Plugin Configuration
+# https://sheldon.cli.rs/
+
+shell = "zsh"
+
+# ==========================================
+# Deferred Loading Template
+# ==========================================
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+
+# ==========================================
+# Deferred Loading Plugin
+# ==========================================
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+# ==========================================
+# Essential Plugins
+# ==========================================
+
+# Syntax highlighting (must be loaded before autosuggestions)
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+# Command suggestions based on history
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+# Additional completions
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
+
+# ==========================================
+# Productivity Plugins
+# ==========================================
+
+# History substring search (arrow keys search)
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply = ["defer"]
+
+# Auto-pair brackets, quotes, etc.
+[plugins.zsh-autopair]
+github = "hlissner/zsh-autopair"
+apply = ["defer"]
+
+# Fast syntax highlighting (alternative, faster)
+# [plugins.fast-syntax-highlighting]
+# github = "zdharma-continuum/fast-syntax-highlighting"
+# apply = ["defer"]
+
+# ==========================================
+# Git Plugins
+# ==========================================
+
+# Git aliases and functions
+[plugins.forgit]
+github = "wfxr/forgit"
+apply = ["defer"]
+
+# ==========================================
+# Utility Plugins
+# ==========================================
+
+# Extract any archive with 'extract' command
+[plugins.extract]
+github = "le0me55i/zsh-extract"
+apply = ["defer"]
+
+# Colored man pages
+[plugins.colored-man-pages]
+github = "ael-code/zsh-colored-man-pages"
+apply = ["defer"]
+
+# You-should-use: reminds you of aliases
+[plugins.you-should-use]
+github = "MichaelAquilina/zsh-you-should-use"
+apply = ["defer"]
