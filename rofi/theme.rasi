@@ -1,0 +1,128 @@
+/* Catppuccin Mocha Theme for Rofi */
+
+* {
+    /* Colors */
+    rosewater: #f5e0dc;
+    flamingo:  #f2cdcd;
+    pink:      #f5c2e7;
+    mauve:     #cba6f7;
+    red:       #f38ba8;
+    maroon:    #eba0ac;
+    peach:     #fab387;
+    yellow:    #f9e2af;
+    green:     #a6e3a1;
+    teal:      #94e2d5;
+    sky:       #89dceb;
+    sapphire:  #74c7ec;
+    blue:      #89b4fa;
+    lavender:  #b4befe;
+    text:      #cdd6f4;
+    subtext1:  #bac2de;
+    subtext0:  #a6adc8;
+    overlay2:  #9399b2;
+    overlay1:  #7f849c;
+    overlay0:  #6c7086;
+    surface2:  #585b70;
+    surface1:  #45475a;
+    surface0:  #313244;
+    base:      #1e1e2e;
+    mantle:    #181825;
+    crust:     #11111b;
+
+    /* Theme */
+    background-color: transparent;
+    text-color: @text;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    location: center;
+    width: 600;
+    border: 2px;
+    border-color: @mauve;
+    border-radius: 15px;
+    background-color: @base;
+}
+
+mainbox {
+    padding: 15px;
+}
+
+inputbar {
+    background-color: @surface0;
+    border-radius: 10px;
+    padding: 10px 15px;
+    spacing: 10px;
+    children: [prompt, entry];
+}
+
+prompt {
+    text-color: @mauve;
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: @overlay0;
+}
+
+listview {
+    margin: 15px 0 0 0;
+    lines: 8;
+    columns: 1;
+    fixed-height: true;
+    scrollbar: false;
+}
+
+element {
+    padding: 10px 15px;
+    spacing: 10px;
+    border-radius: 8px;
+}
+
+element normal.normal {
+    text-color: @text;
+}
+
+element normal.urgent {
+    text-color: @red;
+}
+
+element normal.active {
+    text-color: @green;
+}
+
+element selected.normal {
+    background-color: @surface1;
+    text-color: @mauve;
+}
+
+element selected.urgent {
+    background-color: @red;
+    text-color: @base;
+}
+
+element selected.active {
+    background-color: @green;
+    text-color: @base;
+}
+
+element-icon {
+    size: 24px;
+}
+
+element-text {
+    vertical-align: 0.5;
+    highlight: bold underline;
+}
+
+message {
+    border-radius: 10px;
+    background-color: @surface0;
+    margin: 10px 0 0 0;
+}
+
+textbox {
+    padding: 10px 15px;
+}
