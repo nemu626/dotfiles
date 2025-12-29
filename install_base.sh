@@ -58,9 +58,6 @@ packages=(
     # File manager
     thunar
     
-    # Authentication
-    polkit-gnome
-    
     # Network & Bluetooth
     networkmanager
     network-manager-applet
@@ -74,7 +71,38 @@ packages=(
     papirus-icon-theme
 )
 
+aur_packages=(
+    hyprpolkitagent-git
+    ttf-hackline-nerd
+)
+
 sudo pacman -S --needed --noconfirm "${packages[@]}"
+
+# ==========================================
+# Install paru (AUR helper)
+# ==========================================
+print_step "Installing paru..."
+
+if ! command -v paru &> /dev/null; then
+    sudo pacman -S --needed --noconfirm base-devel git
+    temp_dir=$(mktemp -d)
+    git clone https://aur.archlinux.org/paru.git "$temp_dir/paru"
+    cd "$temp_dir/paru"
+    makepkg -si --noconfirm
+    cd -
+    rm -rf "$temp_dir"
+    print_step "paru installed successfully"
+else
+    print_step "paru is already installed"
+fi
+
+# ==========================================
+# Install AUR packages
+# ==========================================
+print_step "Installing AUR packages..."
+
+
+paru -S --needed --noconfirm "${aur_packages[@]}"
 
 echo ""
 echo -e "${GREEN}Base packages installation complete!${NC}"
