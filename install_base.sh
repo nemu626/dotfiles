@@ -72,7 +72,6 @@ packages=(
     
     # Icons & Cursor
     papirus-icon-theme
-    bibata-cursor-theme
 )
 
 sudo pacman -S --needed --noconfirm "${packages[@]}"
