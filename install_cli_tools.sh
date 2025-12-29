@@ -10,7 +10,7 @@ packages=(
     bat
     git-delta
     eza
-    fd-find
+    fd
     bottom
     ripgrep
     sd
