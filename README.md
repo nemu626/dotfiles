@@ -44,6 +44,21 @@ cd ~/dotfiles
 ./install_cli_tools.sh
 ```
 
+#### macOS (Homebrew)
+
+macOSでHomebrewを使う場合は、`mac/`内のスクリプトを使います。
+
+```bash
+# Homebrew（未導入なら mac/install_base.sh が導入を試みます）
+./mac/install_base.sh
+
+# CLI ツール（brew インストール）
+./mac/install_cli_tools.sh
+
+# mac向けのシンボリックリンク（zsh/vim/sheldon/starship/git）
+./mac/create_link.sh
+```
+
 ### 3. 再ログイン
 
 設定を反映させるため、ログアウトして再ログインしてください。
