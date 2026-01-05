@@ -80,9 +80,7 @@ create_link "$DOTFILES_DIR/zsh" "$CONFIG_DIR/zsh"
 create_link "$DOTFILES_DIR/sheldon" "$CONFIG_DIR/sheldon"
 
 # Neovim
-if [[ -d "$DOTFILES_DIR/nvim" ]] && [[ -n "$(ls -A "$DOTFILES_DIR/nvim" 2>/dev/null)" ]]; then
-    create_link "$DOTFILES_DIR/nvim" "$CONFIG_DIR/nvim"
-fi
+create_link "$DOTFILES_DIR/vim/.vimrc" "$CONFIG_DIR/nvim/init.vim"
 
 # Git
 create_link "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"

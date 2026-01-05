@@ -47,7 +47,8 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT
 
-setopt CORRECT
+unsetopt CORRECT
+unsetopt CORRECT_ALL
 setopt INTERACTIVE_COMMENTS
 setopt NO_BEEP
 

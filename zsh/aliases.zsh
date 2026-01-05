@@ -105,10 +105,11 @@ alias hw='hyprctl workspaces'
 # ==========================================
 # Quick Config Edits
 # ==========================================
-alias zshrc='$EDITOR ~/.zshrc'
+alias zshconf='$EDITOR ~/.zshrc'
 alias hyprconf='$EDITOR ~/.config/hypr/hyprland.conf'
 alias wayconf='$EDITOR ~/.config/waybar/config.jsonc'
-
+alias keybindconf='$EDITOR ~/.config/hypr/conf.d/keybinds.conf'
+alias aliasconf='$EDITOR ~/.config/zsh/aliases.zsh'
 # ==========================================
 # Safety
 # ==========================================

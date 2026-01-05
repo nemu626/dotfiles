@@ -1,4 +1,6 @@
 [user]
+	email = yamada0626@gmail.com
+	name = nemu626
     # name = Your Name
     # email = your.email@example.com
 
@@ -36,7 +38,7 @@
 
 [delta]
     navigate = true
-    side-by-side = true
+    side-by-side = false 
     line-numbers = true
     syntax-theme = Catppuccin Mocha
 
