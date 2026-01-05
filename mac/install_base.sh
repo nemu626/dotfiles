@@ -40,6 +40,7 @@ packages=(
     starship
     sheldon
     ghostty
+    mise
 )
 
 print_step "Installing base packages: ${packages[*]}"
