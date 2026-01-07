@@ -9,7 +9,7 @@
 
 [core]
     editor = nvim
-    pager = delta
+    pager = cat
     autocrlf = input
     whitespace = fix
 
@@ -36,14 +36,7 @@
     colorMoved = default
     algorithm = histogram
 
-[delta]
-    navigate = true
-    side-by-side = false 
-    line-numbers = true
-    syntax-theme = Catppuccin Mocha
 
-[interactive]
-    diffFilter = delta --color-only
 
 [alias]
     # Status
