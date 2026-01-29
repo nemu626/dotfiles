@@ -18,7 +18,8 @@ alias du='dust'
 alias top='btm'
 
 alias diff='delta'
-
+alias gitdiff='git diff | delta'
+alias stagediff='git diff --staged | delta'
 # ==========================================
 # Navigation
 # ==========================================
