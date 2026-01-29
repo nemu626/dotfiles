@@ -99,7 +99,7 @@ source "$HOME/.config/zsh/aliases.zsh"
 eval "$(starship init zsh)"
 
 # Zoxide (better cd)
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init zsh)"
 
 # Mise (runtime version manager)
 eval "$(mise activate zsh)"
