@@ -13,7 +13,7 @@ set fileformats=unix,dos,mac
 " UI
 " ==========================================
 set number
-set relativenumber
+" set relativenumber
 set cursorline
 set showmatch
 set showcmd
