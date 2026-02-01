@@ -40,7 +40,8 @@ cd ~/dotfiles
 # パッケージをインストール
 ./install_base.sh
 
-# CLIツールをインストール
+# CLIツールをインストール（mise.toml でバージョン管理）
+# Arch: paru -S mise or yay -S mise / macOS: brew install mise
 ./install_cli_tools.sh
 ```
 
@@ -52,7 +53,7 @@ macOSでHomebrewを使う場合は、`mac/`内のスクリプトを使います�
 # Homebrew（未導入なら mac/install_base.sh が導入を試みます）
 ./mac/install_base.sh
 
-# CLI ツール（brew インストール）
+# CLI ツール（mise.toml でバージョン管理）
 ./mac/install_cli_tools.sh
 
 # mac向けのシンボリックリンク（zsh/vim/sheldon/starship/git）

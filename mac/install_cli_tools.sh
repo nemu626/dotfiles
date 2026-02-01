@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# macOS CLI Tools installation (Homebrew)
+# macOS CLI Tools installation (Homebrew + mise)
 
 set -euo pipefail
 
 print_header() {
     echo "======================================"
-    echo " macOS - CLI tools (brew)"
+    echo " macOS - CLI tools"
     echo "======================================"
 }
 
@@ -27,35 +27,18 @@ fi
 
 brew update || true
 
+# System packages not managed by mise
 brew_packages=(
-    bat
-    git-delta
-    exa
-    fd
-    bottom
-    ripgrep
-    sd
-    zoxide
-    skim
-    gitui
-    starship
-    zellij
-    dust
-
-    neovim
     tmux
     htop
-    jq
-    yq
     curl
     wget
     unzip
     p7zip
     tree
-    lazygit
 )
 
-print_step "Installing packages: ${brew_packages[*]}"
+print_step "Installing system packages: ${brew_packages[*]}"
 
 for pkg in "${brew_packages[@]}"; do
     if brew ls --versions "$pkg" >/dev/null 2>&1; then
@@ -70,6 +53,14 @@ for pkg in "${brew_packages[@]}"; do
         print_warn "$pkg not found in Homebrew; skipping"
     fi
 done
+
+if ! command -v mise >/dev/null 2>&1; then
+    print_warn "mise is required. Install it first (e.g. brew install mise)."
+    exit 1
+fi
+
+print_step "Installing mise-managed CLI tools..."
+mise install
 
 print_step "CLI tools installation complete."
 exit 0

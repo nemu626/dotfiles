@@ -4,43 +4,21 @@
 
 set -e
 
-# CLI tools from official repos
-packages=(
-    # Rust CLI tools
-    bat
-    git-delta
-    eza
-    fd
-    bottom
-    ripgrep
-    sd
-    zoxide
-    skim
-    gitui
-    starship
-    zellij
-    dust
-
-    # Core tools
-    neovim
-    tmux
+# System packages not managed by mise
+system_packages=(
     htop
-    jq
-    yq
+    tmux
     curl
     wget
     unzip
     p7zip
     tree
-    
-    # Development
     base-devel
-    lazygit
 )
 
-echo "Installing CLI tools..."
+echo "Installing system CLI tools..."
 
-for package in "${packages[@]}"; do
+for package in "${system_packages[@]}"; do
     if pacman -Qi "$package" &>/dev/null; then
         echo "✓ $package (already installed)"
     else
@@ -49,32 +27,24 @@ for package in "${packages[@]}"; do
     fi
 done
 
-# AUR packages (requires yay or paru)
-aur_packages=(
-    mise
-    broot
-)
+if ! command -v mise >/dev/null 2>&1; then
+    if command -v paru &>/dev/null; then
+        AUR_HELPER="paru"
+    elif command -v yay &>/dev/null; then
+        AUR_HELPER="yay"
+    else
+        echo "mise is required, but no AUR helper found. Install mise manually first."
+        exit 1
+    fi
 
-if command -v paru &>/dev/null; then
-    AUR_HELPER="paru"
-elif command -v yay &>/dev/null; then
-    AUR_HELPER="yay"
-else
-    echo "No AUR helper found. Skipping AUR packages."
-    exit 0
+    echo ""
+    echo "Installing mise with $AUR_HELPER..."
+    "$AUR_HELPER" -S --noconfirm mise
 fi
 
 echo ""
-echo "Installing AUR packages with $AUR_HELPER..."
-
-for package in "${aur_packages[@]}"; do
-    if pacman -Qi "$package" &>/dev/null; then
-        echo "✓ $package (already installed)"
-    else
-        echo "→ Installing $package..."
-        $AUR_HELPER -S --noconfirm "$package"
-    fi
-done
+echo "Installing mise-managed CLI tools..."
+mise install
 
 echo ""
 echo "CLI tools installation complete!"
