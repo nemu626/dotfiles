@@ -38,13 +38,12 @@ alias gco='git checkout'
 alias gd='git diff | delta'
 alias gds='git diff --staged | delta'
 alias gl='git log --oneline -20'
-alias gp='git push'
-alias gpl='git pull'
-alias gs='git status -sb'
-alias gst='git stash'
-alias gstp='git stash pop'
+alias gp='git pull'
+alias gs='git switch'
+alias gsc='git switch -c'
 
-alias lg='gitui'
+alias lg='lazygit'
+alias gui='gitui'
 
 # ==========================================
 # Editor
