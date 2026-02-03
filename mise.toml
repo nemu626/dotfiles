@@ -1,5 +1,12 @@
 [tools]
-# Registry tool names (mise registry)
+# Language, Package Manager
+bun = "latest"
+pnpm = "latest"
+node = "latest"
+rust = "latest"
+go = "latest"
+
+# Cli, TUI tools
 bat = "latest"
 delta = "latest"
 eza = "latest"
@@ -8,9 +15,8 @@ bottom = "latest"
 ripgrep = "latest"
 sd = "latest"
 zoxide = "latest"
-skim = "latest"
+fzf = "latest"
 gitui = "latest"
-starship = "latest"
 zellij = "latest"
 dust = "latest"
 broot = "latest"
@@ -18,3 +24,10 @@ lazygit = "latest"
 neovim = "latest"
 jq = "latest"
 yq = "latest"
+
+# AI tools
+codex = "latest"
+gemini-cli = "latest"
+opencode = "latest"
+claude = "latest"
+
