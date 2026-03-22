@@ -19,11 +19,11 @@ fzf = "latest"
 gitui = "latest"
 zellij = "latest"
 dust = "latest"
-broot = "latest"
 lazygit = "latest"
 neovim = "latest"
 jq = "latest"
 yq = "latest"
+"cargo:rust_tree" = "latest"
 
 # AI tools
 codex = "latest"
