@@ -23,6 +23,7 @@ lazygit = "latest"
 neovim = "latest"
 jq = "latest"
 yq = "latest"
+"cargo:rust_tree" = "latest"
 
 # AI tools
 codex = "latest"
