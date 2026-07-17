@@ -1,0 +1,50 @@
+onboarding = false
+[theme]
+name = "dracula"
+auto_switch = false
+
+[ui.toast]
+delivery = "system"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+sidebar_min_width = 20
+
+
+agent_panel_sort = "spaces"
+[experimental]
+switch_ascii_input_source_in_prefix = true
+
+# keybinds
+#
+[[keys.command]]
+key = "prefix+w"
+type = "plugin_action"
+command = "yamada.worktree-session.open"
+description = "new worktree session"
+
+[[keys.command]]
+key = "prefix+d"
+type = "pane"
+command = "lazygit"
+description = "run LazyGit"
+
+[[keys.command]]
+key = "prefix+shift+d"
+type = "pane"
+command = "hunk diff"
+description = "run hunk diff"
+
+
+[[keys.command]]
+key = "prefix+shift+e"
+type = "pane"
+command = "nvim ."
+description = "run nvim"
+
+[[keys.command]]
+key = "prefix+shift+z"
+type = "shell"
+command = "zed ."
+description = "run zed"
+

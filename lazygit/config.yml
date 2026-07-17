@@ -1,0 +1,50 @@
+git:
+  pagers:
+    - pager: delta --dark --paging=never
+
+#gui:
+#  showIcons: true
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+#
+# Lazygit config — Catppuccin Mocha theme + optimized layout
+# Place at: ~/Library/Application Support/lazygit/config.yml (macOS)
+#           ~/.config/lazygit/config.yml (Linux)
+
+gui:
+  # ── Theme: Catppuccin Mocha ──────────────────────────────────────────
+  sidePanelWidth: 0.25
+  showIcons: true
+  showFileIcons: true
+  tabWidth: 2
+  theme:
+    activeBorderColor:
+      - "#cba6f7"   # Mauve
+      - bold
+    inactiveBorderColor:
+      - "#585b70"   # Surface2
+    searchingActiveBorderColor:
+      - "#f9e2af"   # Yellow
+      - bold
+    optionsTextColor:
+      - "#89b4fa"   # Blue
+    selectedLineBgColor:
+      - "#313244"   # Surface0
+    inactiveViewSelectedLineBgColor:
+      - "#313244"   # Surface0
+    cherryPickedCommitFgColor:
+      - "#f38ba8"   # Red
+    cherryPickedCommitBgColor:
+      - "#45475a"   # Surface1
+    markedBaseCommitFgColor:
+      - "#a6e3a1"   # Green
+    markedBaseCommitBgColor:
+      - "#45475a"   # Surface1
+    unstagedChangesColor:
+      - "#f38ba8"   # Red
+    defaultFgColor:
+      - "#cdd6f4"   # Text
+ 
+  # ── Author colors ───────────────────────────────────────────────────
+  authorColors:
+    "*": "#89b4fa"   # Blue for all authors (override per-name if desired)
