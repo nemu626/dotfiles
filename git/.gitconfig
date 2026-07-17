@@ -92,3 +92,9 @@
 
 [url "git@gitlab.com:"]
     insteadOf = gl:
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/narugal/.local/share/mise/installs/github-cli/2.96.0/gh_2.96.0_linux_amd64/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/narugal/.local/share/mise/installs/github-cli/2.96.0/gh_2.96.0_linux_amd64/bin/gh auth git-credential

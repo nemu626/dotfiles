@@ -17,9 +17,6 @@ alias find='fd'
 alias du='dust'
 alias top='btm'
 
-alias diff='delta'
-alias gitdiff='git diff | delta'
-alias stagediff='git diff --staged | delta'
 # ==========================================
 # Navigation
 # ==========================================
@@ -35,12 +32,11 @@ alias -g ....='../../..'
 # ==========================================
 alias g='git'
 alias ga='git add'
-alias gaa='git add --all'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gco='git checkout'
-alias gd='git diff'
-alias gds='git diff --staged'
+alias gd='git diff | delta'
+alias gds='git diff --staged | delta'
 alias gl='git log --oneline -20'
 alias gp='git push'
 alias gpl='git pull'
