@@ -1,0 +1,21 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+glow = "latest"
+go = "latest"
+marp-cli = "latest"
+ni = "latest"
+node = "latest"
+"npm:nps" = "latest"
+"npm:ntl" = "latest"
+pnpm = "latest"
+rust = "latest"
+taplo = "latest"
+yarn = "v1"
+uv = "latest"
+bun = "latest"
+"npm:difit" = "latest"
+"github:trasta298/keifu" = "latest"
+opencode = "latest"
+"npm:@openai/codex" = "latest"
