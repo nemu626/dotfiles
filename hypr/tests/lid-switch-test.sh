@@ -42,7 +42,11 @@ assert_no_monitor_keyword() {
 
 test_open_enables_internal() {
     setup
-    run_handler open
+    if ! run_handler open; then
+        printf 'unexpected monitor keyword failure\n' >&2
+        teardown
+        return 1
+    fi
     assert_log_contains \
         'keyword monitor eDP-1,preferred,auto,1.45703125' || {
         teardown
@@ -65,7 +69,27 @@ test_open_failure_is_reported() {
 test_close_with_external_disables_internal() {
     setup
     export FAKE_MONITORS_JSON='[{"name":"eDP-1"},{"name":"DP-7"}]'
-    run_handler close
+    if ! run_handler close; then
+        printf 'unexpected monitor keyword failure\n' >&2
+        teardown
+        return 1
+    fi
+    assert_log_contains 'keyword monitor eDP-1,disable' || {
+        teardown
+        return 1
+    }
+    teardown
+}
+
+test_close_disable_failure_is_reported() {
+    setup
+    export FAKE_MONITORS_JSON='[{"name":"eDP-1"},{"name":"DP-7"}]'
+    export FAKE_KEYWORD_STATUS=1
+    if run_handler close; then
+        printf 'expected monitor keyword failure\n' >&2
+        teardown
+        return 1
+    fi
     assert_log_contains 'keyword monitor eDP-1,disable' || {
         teardown
         return 1
@@ -133,6 +157,7 @@ tests=(
     test_open_enables_internal
     test_open_failure_is_reported
     test_close_with_external_disables_internal
+    test_close_disable_failure_is_reported
     test_close_without_external_is_noop
     test_close_query_failure_is_safe
     test_close_invalid_json_is_safe
