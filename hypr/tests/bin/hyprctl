@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -u
+
+printf '%s\n' "$*" >>"${FAKE_HYPRCTL_LOG:?}"
+
+case "${1-} ${2-}" in
+    "monitors -j")
+        printf '%s\n' "${FAKE_MONITORS_JSON:-[]}"
+        exit "${FAKE_MONITORS_STATUS:-0}"
+        ;;
+    "keyword monitor")
+        exit "${FAKE_KEYWORD_STATUS:-0}"
+        ;;
+    *)
+        exit 64
+        ;;
+esac

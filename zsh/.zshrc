@@ -113,3 +113,7 @@ fi
 # Local Overrides
 # ==========================================
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/narugal/.local/bin:$PATH"
