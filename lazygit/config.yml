@@ -42,6 +42,6 @@ gui:
       - "#f38ba8" # Red
     defaultFgColor:
       - "#cdd6f4" # Text
-  # ── Author colors ───────────────────────────────────────────────────
-  authorColors:
-    "*": "#89b4fa" # Blue for all authors (override per-name if desired)
+    # ── Author colors ───────────────────────────────────────────────────
+    authorColors:
+      "*": "#89b4fa" # Blue for all authors (override per-name if desired)
