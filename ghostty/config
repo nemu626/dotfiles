@@ -10,50 +10,51 @@ term = xterm-256color
 # ==========================================
 # Font
 # ==========================================
-font-family = "HackLineJKNF"
-font-size = 12
+font-family = HackLineJKNF
+font-size = 16
 font-feature = -liga
 adjust-cell-height = 10%
 
+theme = Ayu
 # ==========================================
 # Theme (Catppuccin Mocha)
 # ==========================================
-background = 1e1e2e
-foreground = cdd6f4
-selection-background = 585b70
-selection-foreground = cdd6f4
-cursor-color = f5e0dc
+#background = 1e1e2e
+#foreground = cdd6f4
+#selection-background = 585b70
+#selection-foreground = cdd6f4
+#cursor-color = f5e0dc
 
 # Normal colors
-palette = 0=#45475a
-palette = 1=#f38ba8
-palette = 2=#a6e3a1
-palette = 3=#f9e2af
-palette = 4=#89b4fa
-palette = 5=#f5c2e7
-palette = 6=#94e2d5
-palette = 7=#bac2de
+#palette = 0=#45475a
+#palette = 1=#f38ba8
+#palette = 2=#a6e3a1
+#palette = 3=#f9e2af
+#palette = 4=#89b4fa
+#palette = 5=#f5c2e7
+#palette = 6=#94e2d5
+#palette = 7=#bac2de
 
 # Bright colors
-palette = 8=#585b70
-palette = 9=#f38ba8
-palette = 10=#a6e3a1
-palette = 11=#f9e2af
-palette = 12=#89b4fa
-palette = 13=#f5c2e7
-palette = 14=#94e2d5
-palette = 15=#a6adc8
+#palette = 8=#585b70
+#palette = 9=#f38ba8
+#palette = 10=#a6e3a1
+#palette = 11=#f9e2af
+#palette = 12=#89b4fa
+#palette = 13=#f5c2e7
+#palette = 14=#94e2d5
+#palette = 15=#a6adc8
 
 # ==========================================
 # Window
 # ==========================================
 window-padding-x = 10
 window-padding-y = 10
-window-decoration = false
-gtk-titlebar = false
+window-decoration = auto
+gtk-titlebar = true
 background-opacity = 1.0
 unfocused-split-opacity = 0.9
-
+split-divider-color = "#FFFFFF"
 # ==========================================
 # Behavior
 # ==========================================
@@ -74,6 +75,27 @@ keybind = ctrl+shift+t=new_tab
 keybind = ctrl+plus=increase_font_size:1
 keybind = ctrl+minus=decrease_font_size:1
 keybind = ctrl+zero=reset_font_size
+keybind = global:cmd+ctrl+alt+shift+g=toggle_quick_terminal
+keybind = global:cmd+backquote=toggle_quick_terminal
 
+# MacOS : remap CMD to ctrl
+key-remap = super=ctrl
 
 macos-icon = blueprint
+macos-titlebar-style = tabs
+macos-option-as-alt = true
+macos-icon-frame = chrome
+
+quick-terminal-position = "top"
+quick-terminal-screen = "mouse"
+quick-terminal-size = "100%,100%"
+quick-terminal-animation-duration = 0.1
+quick-terminal-autohide = false
+gtk-quick-terminal-layer = "overlay"
+quick-terminal-animation-duration = 0.15
+keybind = "global:cmd+shift+enter=toggle_quick_terminal"
+keybind = "global:ctrl+backquote=toggle_quick_terminal"
+keybind = "global:cmd+backquote=toggle_quick_terminal"
+keybind = "global:cmd+escape=toggle_quick_terminal"
+keybind = "global:ctrl+escape=toggle_quick_terminal"
+keybind = "global:option+`=toggle_quick_terminal"
