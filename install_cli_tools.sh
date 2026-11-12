@@ -4,12 +4,26 @@
 
 set -e
 
-# System packages not managed by mise
+# CLI tools from official repos
 system_packages=(
-    htop
+    # Rust CLI tools
+    bat
+    git-delta
+    eza
+    fd
+    bottom
+    ripgrep
+    sd
+    zoxide
+    skim
+    gitui
+    starship
+    zellij
+    dust
+
+    # Core tools
+    neovim
     tmux
-    curl
-    wget
     unzip
     p7zip
     tree
