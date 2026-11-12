@@ -1,6 +1,6 @@
 [user]
-	email = yamada0626@gmail.com
-	name = nemu626
+	email = yamada.kazuyoshi@line-works.com
+	name = 山田一権[ Yamada Kazuyoshi ][ AI Works Dev ]
     # name = Your Name
     # email = your.email@example.com
 
@@ -10,8 +10,11 @@
 [core]
     editor = nvim
     pager = cat
+#    pager = delta
     autocrlf = input
     whitespace = fix
+  excludefile = ~/.globalgitignore
+	excludesFile = /Users/wj10237/.globalgitignore
 
 [color]
     ui = auto
@@ -35,8 +38,6 @@
 [diff]
     colorMoved = default
     algorithm = histogram
-
-
 
 [alias]
     # Status
@@ -93,8 +94,13 @@
 [url "git@gitlab.com:"]
     insteadOf = gl:
 [credential "https://github.com"]
-	helper = 
-	helper = !/home/narugal/.local/share/mise/installs/github-cli/2.96.0/gh_2.96.0_linux_amd64/bin/gh auth git-credential
+	helper =
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/home/narugal/.local/share/mise/installs/github-cli/2.96.0/gh_2.96.0_linux_amd64/bin/gh auth git-credential
+	helper =
+	helper = !gh auth git-credential
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
