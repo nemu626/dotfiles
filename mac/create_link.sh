@@ -44,6 +44,20 @@ create_link "$DOTFILES_DIR/starship/starship.toml" "$CONFIG_DIR/starship.toml"
 # Git
 create_link "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
 
+# ghostty
+create_link "$DOTFILES_DIR/ghostty/config" "$CONFIG_DIR/ghostty/config"
+
+# AeroSpace (disabled - using yabai instead)
+# create_link "$DOTFILES_DIR/mac/aerospace/aerospace.toml" "$CONFIG_DIR/aerospace/aerospace.toml"
+
+# yabai
+create_link "$DOTFILES_DIR/mac/yabai/yabairc" "$CONFIG_DIR/yabai/yabairc"
+
+# skhd
+create_link "$DOTFILES_DIR/mac/skhd/skhdrc" "$CONFIG_DIR/skhd/skhdrc"
+mkdir -p "$CONFIG_DIR/skhd/scripts"
+create_link "$DOTFILES_DIR/mac/skhd/scripts/toggle-space.sh" "$CONFIG_DIR/skhd/scripts/toggle-space.sh"
+
 print_step "Symlinks created."
 
 # Make scripts executable if any new scripts exist

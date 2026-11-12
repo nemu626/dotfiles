@@ -1,0 +1,160 @@
+# AeroSpace config (Hyprland-like keybinds)
+# Location (symlink target): ~/.config/aerospace/aerospace.toml
+# Docs: https://nikitabobko.github.io/AeroSpace/guide
+
+config-version = 2
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Keep normalization enabled (recommended)
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Use tiles by default
+accordion-padding = 30
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'horizontal'
+
+# Hyprland dwindle-like: auto split based on window aspect ratio
+on-focus-changed = ['exec-and-forget ~/.config/aerospace/scripts/auto-split.sh']
+
+# Mouse follows focused monitor (i3-like)
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Keep scratchpad workspaces alive even when empty
+persistent-workspaces = [
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+    'magic', 'quake', 'slack'
+]
+
+[key-mapping]
+    preset = 'qwerty'
+
+# Homebrew PATH for exec-and-forget
+[exec]
+    inherit-env-vars = true
+[exec.env-vars]
+    PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
+
+# Gaps (Hyprland: gaps_in/out = 5)
+[gaps]
+    inner.horizontal = 5
+    inner.vertical = 5
+    outer.left = 5
+    outer.bottom = 5
+    outer.top = 5
+    outer.right = 5
+
+# Main bindings
+# NOTE: AeroSpace doesn't have a Hyprland 'SUPER' concept; here we use 'alt' as the main modifier.
+# If you want to use 'cmd' instead, replace 'alt-' with 'cmd-' where desired.
+[mode.main.binding]
+    # --- App launchers ---
+    alt-enter = 'exec-and-forget open -a Ghostty'
+    alt-t = 'exec-and-forget open -a Ghostty'
+    alt-e = 'exec-and-forget open -a Finder'
+    alt-b = 'exec-and-forget open -a "Google Chrome"'
+
+    # --- Window management ---
+    alt-q = 'close'
+    alt-w = 'close'
+    alt-c = 'close'
+    alt-m = 'fullscreen'
+    alt-f = 'layout floating tiling'
+
+    # Hyprland 'togglesplit' analogue (toggle orientation)
+    alt-z = 'layout horizontal vertical'
+
+    # --- Focus movement (vim keys) ---
+    alt-h = 'focus left'
+    alt-j = 'focus down'
+    alt-k = 'focus up'
+    alt-l = 'focus right'
+
+    alt-left = 'focus left'
+    alt-down = 'focus down'
+    alt-up = 'focus up'
+    alt-right = 'focus right'
+
+    # --- Move window (vim keys) ---
+    alt-shift-h = 'move left'
+    alt-shift-j = 'move down'
+    alt-shift-k = 'move up'
+    alt-shift-l = 'move right'
+
+    alt-shift-left = 'move left'
+    alt-shift-down = 'move down'
+    alt-shift-up = 'move up'
+    alt-shift-right = 'move right'
+
+    # --- Resize (Hyprland: mainMod+CTRL+hjkl) ---
+    alt-ctrl-h = 'resize width -50'
+    alt-ctrl-l = 'resize width +50'
+    alt-ctrl-k = 'resize height -50'
+    alt-ctrl-j = 'resize height +50'
+
+    alt-ctrl-left = 'resize width -50'
+    alt-ctrl-right = 'resize width +50'
+    alt-ctrl-up = 'resize height -50'
+    alt-ctrl-down = 'resize height +50'
+
+    # --- Workspaces (1-10) ---
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+    alt-0 = 'workspace 10'
+
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-7 = 'move-node-to-workspace 7'
+    alt-shift-8 = 'move-node-to-workspace 8'
+    alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-0 = 'move-node-to-workspace 10'
+
+
+    # --- Scratchpad-ish workspaces (Hyprland special:magic / special:quake) ---
+    # Toggle behavior via --auto-back-and-forth
+    alt-s = 'workspace --auto-back-and-forth magic'
+    alt-backtick = 'workspace --auto-back-and-forth quake'
+    alt-d = 'exec-and-forget ~/.config/aerospace/scripts/toggle-slack.sh'
+
+    # Optional: send focused window to special workspace and follow
+    alt-shift-s = ['move-node-to-workspace magic', 'workspace magic']
+    alt-shift-d = ['move-node-to-workspace slack', 'workspace slack']
+
+    # --- Launcher (Spotlight/Raycast) ---
+    alt-space = 'exec-and-forget open -a "Raycast"'
+
+    # --- Workspace back-and-forth ---
+    alt-tab = 'workspace-back-and-forth'
+
+    # --- Service mode (utility) ---
+    alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main']
+    f = ['layout floating tiling', 'mode main']
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+# Window rules (Hyprland windowrules equivalent)
+# Make Picture-in-Picture windows float
+[[on-window-detected]]
+    if.window-title-regex-substring = 'Picture-in-Picture'
+    run = 'layout floating'
+
+# Slack -> slack workspace
+[[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = 'move-node-to-workspace slack'

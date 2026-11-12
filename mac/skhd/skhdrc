@@ -1,0 +1,7 @@
+# skhd config (Hyprland-like keybinds)
+# Location: ~/.config/skhd/skhdrc
+# Modifier: alt (option key) = Hyprland's SUPER
+
+# ==========================================
+# Application Launchers
+# ==========================================
