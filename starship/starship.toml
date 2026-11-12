@@ -58,7 +58,14 @@ symbol = " "
 symbol = " "
 
 [git_commit]
+disabled = true
 tag_symbol = '  '
+
+[git_state]
+disabled = true
+
+[git_status]
+disabled = true
 
 [golang]
 symbol = " "

@@ -9,7 +9,7 @@ alias la='eza -a --icons --group-directories-first'
 alias lt='eza --tree --icons --level=2'
 alias tree='eza --tree --icons'
 
-alias cat='bat --paging=never'
+# alias cat='bat --paging=never'
 alias less='bat --paging=always'
 
 alias grep='rg'
@@ -17,6 +17,7 @@ alias find='fd'
 alias du='dust'
 alias top='btm'
 
+alias cd='z'
 # ==========================================
 # Navigation
 # ==========================================
@@ -39,8 +40,11 @@ alias gd='git diff | delta'
 alias gds='git diff --staged | delta'
 alias gl='git log --oneline -20'
 alias gp='git pull'
-alias gs='git switch'
+alias gs='git status'
+alias gsw='git switch'
 alias gsc='git switch -c'
+alias gst='git stash'
+alias gstp='git stash pop'
 
 alias lg='lazygit'
 alias gui='gitui'
@@ -89,6 +93,7 @@ alias rm='rm -iv'
 
 alias ports='ss -tulanp'
 alias myip='curl -s ifconfig.me'
+alias lgit='lazygit'
 
 # ==========================================
 # Hyprland
@@ -112,3 +117,16 @@ alias aliasconf='$EDITOR ~/.config/zsh/aliases.zsh'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
+
+
+# My Personal Commands
+alias hb='hibi'
+alias ws='cd ~/workspace'
+
+# ntl(node task runner)
+alias nt='ntl -A -s 25'
+
+# diffnav
+alias gdiff='git diff HEAD | diffnav'
+alias sdiff='git diff --staged | diffnav'
+alias udiff='git diff | diffnav'

@@ -7,7 +7,8 @@ shell = "zsh"
 # Deferred Loading Template
 # ==========================================
 [templates]
-defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+# Run precmd once after all plugins load; avoid rebuilding the prompt per plugin.
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer -mp source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
 
 # ==========================================
 # Deferred Loading Plugin
@@ -79,4 +80,10 @@ apply = ["defer"]
 # You-should-use: reminds you of aliases
 [plugins.you-should-use]
 github = "MichaelAquilina/zsh-you-should-use"
+apply = ["defer"]
+
+
+# npm autocomplete
+[plugins.zsh-npm-scripts-autocomplete]
+github = "grigorii-zander/zsh-npm-scripts-autocomplete"
 apply = ["defer"]

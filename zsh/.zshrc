@@ -28,7 +28,7 @@ path=(
 # ==========================================
 # History
 # ==========================================
-HISTFILE="$XDG_STATE_HOME/zsh/history"
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
 SAVEHIST=100000
 
@@ -56,11 +56,15 @@ setopt NO_BEEP
 # Completion
 # ==========================================
 autoload -Uz compinit
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-    compinit
-else
-    compinit -C
-fi
+() {
+    setopt localoptions extendedglob
+    local dump="${ZDOTDIR:-$HOME}/.zcompdump"
+    if [[ ! -s $dump || -n $dump(#qN.mh+24) ]]; then
+        compinit -d "$dump" && command touch "$dump"
+    else
+        compinit -C -d "$dump"
+    fi
+}
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -81,6 +85,8 @@ bindkey '^[[1;5D' backward-word
 # Sheldon Plugin Manager
 # ==========================================
 eval "$(sheldon source)"
+# Initialize precmd-based plugins (e.g. autosuggestions) once, without rebuilding the prompt.
+zsh-defer -p :
 
 # History Substring Search keybindings (after sheldon loads)
 bindkey '^[[A' history-substring-search-up
@@ -114,6 +120,17 @@ fi
 # ==========================================
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
 
+# User-local CLI tools (including Antigravity)
+export PATH="$HOME/.local/bin:$PATH"
 
-# Added by Antigravity CLI installer
-export PATH="/home/narugal/.local/bin:$PATH"
+# --- swap-plan begin ---
+_swap_plan() {
+  local cmds=(setup install update config configuration cleanup team enterprise list remove rename current status version help)
+  _describe 'command' cmds
+}
+compdef _swap_plan swap-plan
+# --- swap-plan end ---
+
+# druk
+export PATH="$HOME/.druk/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
