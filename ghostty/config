@@ -68,9 +68,12 @@ shell-integration = zsh
 # ==========================================
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = performable:ctrl+c=copy_to_clipboard
-keybind = ctrl+shift+v=paste_from_clipboard
-# Let applications handle Ctrl+V (e.g. clipboard images in Claude Code).
-keybind = ctrl+v=unbind
+# Paste text through the terminal in both shells and TUI apps.
+keybind = ctrl+v=paste_from_clipboard
+# Send raw Ctrl+V for image paste in Claude Code and Codex.
+keybind = ctrl+shift+v=text:\x16
+# Override the macOS menu shortcut, which runs before key-remap.
+keybind = super+shift+v=text:\x16
 keybind = ctrl+shift+n=new_window
 keybind = ctrl+shift+t=new_tab
 keybind = ctrl+plus=increase_font_size:1
