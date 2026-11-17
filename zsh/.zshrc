@@ -81,6 +81,19 @@ bindkey '^[[B' history-search-forward
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
+# Paste text at the shell prompt while leaving Ctrl+V available to TUI apps.
+if [[ $OSTYPE == darwin* ]] && (( $+commands[pbpaste] )); then
+    paste-from-clipboard() {
+        emulate -L zsh
+        local clipboard
+        # Preserve trailing newlines; insert text without executing it.
+        clipboard="$(pbpaste && print -rn -- .)" || return
+        LBUFFER+="${clipboard%.}"
+    }
+    zle -N paste-from-clipboard
+    bindkey '^V' paste-from-clipboard
+fi
+
 # ==========================================
 # Sheldon Plugin Manager
 # ==========================================
