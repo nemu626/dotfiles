@@ -28,6 +28,9 @@ create_link() {
 
 print_step "Creating macOS-specific symlinks..."
 
+# Mise (shared defaults; projects can override versions in their own mise.toml)
+create_link "$DOTFILES_DIR/mise/config.toml" "$CONFIG_DIR/mise/config.toml"
+
 # Zsh
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 create_link "$DOTFILES_DIR/zsh" "$CONFIG_DIR/zsh"

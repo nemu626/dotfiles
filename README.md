@@ -40,7 +40,7 @@ cd ~/dotfiles
 # パッケージをインストール
 ./install_base.sh
 
-# CLIツールをインストール（mise.toml でバージョン管理）
+# CLIツールをインストール（mise/config.toml でバージョン管理）
 # Arch: paru -S mise or yay -S mise / macOS: brew install mise
 ./install_cli_tools.sh
 ```
@@ -53,11 +53,32 @@ macOSでHomebrewを使う場合は、`mac/`内のスクリプトを使います�
 # Homebrew（未導入なら mac/install_base.sh が導入を試みます）
 ./mac/install_base.sh
 
-# CLI ツール（mise.toml でバージョン管理）
+# CLI ツール（mise/config.toml でバージョン管理）
 ./mac/install_cli_tools.sh
 
-# mac向けのシンボリックリンク（zsh/vim/sheldon/starship/git）
+# mac向けのシンボリックリンク（mise/zsh/vim/sheldon/starship/gitなど）
 ./mac/create_link.sh
+```
+
+#### miseの設定
+
+共通設定は `mise/config.toml` にまとめ、両OSのリンク作成スクリプトから
+`~/.config/mise/config.toml` にリンクします。既存のファイルはバックアップされます。
+別のマシンで適用するときは、そのマシン固有のツール指定を共通設定と比較してからリンクしてください。
+
+Nodeは `24.22.1`、pnpmは `10.33.0`、Yarnは `v4` を共通の既定値にしています。
+プロジェクトごとに別のバージョンが必要な場合は、そのプロジェクトの `mise.toml` で指定します。
+たとえばYarn 1が必要なプロジェクトでは `mise use yarn@v1` を実行します。
+
+追加ツールの一覧は `mise/config.extras.toml` に保存しています。通常のシェルでは読み込まれません。
+Homebrewやpacmanで導入済みのCLIも含むため、miseでも管理したい場合に読み込んでください。
+
+```bash
+# dotfilesディレクトリで、追加ツールもインストール
+mise -E extras install
+
+# 追加ツールをmise経由で実行する例
+mise -E extras exec -- lazygit
 ```
 
 ### 3. 再ログイン

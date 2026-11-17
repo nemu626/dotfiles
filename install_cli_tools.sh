@@ -4,6 +4,8 @@
 
 set -e
 
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # CLI tools from official repos
 system_packages=(
     # Rust CLI tools
@@ -58,7 +60,7 @@ fi
 
 echo ""
 echo "Installing mise-managed CLI tools..."
-mise install
+mise -C "$DOTFILES_DIR" install
 
 echo ""
 echo "CLI tools installation complete!"

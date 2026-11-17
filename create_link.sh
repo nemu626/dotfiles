@@ -55,7 +55,7 @@ print_header
 print_step "Creating symlinks..."
 
 # Mise
-create_link "$DOTFILES_DIR/mise.toml" "$CONFIG_DIR/mise/config.toml"
+create_link "$DOTFILES_DIR/mise/config.toml" "$CONFIG_DIR/mise/config.toml"
 
 # Hyprland
 create_link "$DOTFILES_DIR/hypr" "$CONFIG_DIR/hypr"

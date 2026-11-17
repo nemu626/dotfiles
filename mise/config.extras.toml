@@ -1,11 +1,6 @@
+# Optional tools: mise -C /path/to/dotfiles -E extras install
+# Keep this list separate from the defaults in config.toml.
 [tools]
-# Language, Package Manager
-bun = "latest"
-pnpm = "latest"
-node = "latest"
-rust = "latest"
-go = "latest"
-
 # Cli, TUI tools
 bat = "latest"
 delta = "latest"
@@ -26,13 +21,10 @@ yq = "latest"
 "cargo:rust_tree" = "latest"
 
 # AI tools
-codex = "latest"
 gemini-cli = "latest"
-opencode = "latest"
 claude = "latest"
-marp-cli = "latest"
 herdr = "latest"
+"npm:difit" = "latest"
 "npm:hunkdiff" = "latest"
 github-cli = "latest"
-"npm:@openai/codex" = "latest"
 

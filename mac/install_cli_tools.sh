@@ -4,6 +4,8 @@
 
 set -euo pipefail
 
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
 print_header() {
   echo "======================================"
   echo " macOS - CLI tools"
@@ -31,7 +33,7 @@ brew update || true
 brew_packages=(
   bat
   git-delta
-  exa
+  eza
   fd
   bottom
   ripgrep
@@ -76,7 +78,7 @@ if ! command -v mise >/dev/null 2>&1; then
 fi
 
 print_step "Installing mise-managed CLI tools..."
-mise install
+mise -C "$DOTFILES_DIR" install
 
 print_step "CLI tools installation complete."
 exit 0
