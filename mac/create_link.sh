@@ -38,6 +38,9 @@ create_link "$DOTFILES_DIR/zsh" "$CONFIG_DIR/zsh"
 # Vim
 create_link "$DOTFILES_DIR/vim/.vimrc" "$HOME/.vimrc"
 
+# Neovim (user keymaps for an existing LazyVim installation)
+create_link "$DOTFILES_DIR/nvim/lua/config/keymaps.lua" "$CONFIG_DIR/nvim/lua/config/keymaps.lua"
+
 # Sheldon
 create_link "$DOTFILES_DIR/sheldon" "$CONFIG_DIR/sheldon"
 
