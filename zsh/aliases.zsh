@@ -91,7 +91,11 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
 
-alias ports='ss -tulanp'
+if [[ $OSTYPE == darwin* ]]; then
+    alias ports='lsof -nP -iTCP -sTCP:LISTEN -iUDP'
+else
+    alias ports='ss -tulanp'
+fi
 alias myip='curl -s ifconfig.me'
 alias lgit='lazygit'
 
@@ -114,9 +118,14 @@ alias aliasconf='$EDITOR ~/.config/zsh/aliases.zsh'
 # ==========================================
 # Safety
 # ==========================================
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+if [[ $OSTYPE == linux* ]]; then
+    alias chown='chown --preserve-root'
+    alias chmod='chmod --preserve-root'
+    alias chgrp='chgrp --preserve-root'
+else
+    # Clear the old GNU-only aliases when this file is sourced again on macOS.
+    unalias chown chmod chgrp 2>/dev/null || true
+fi
 
 
 # My Personal Commands

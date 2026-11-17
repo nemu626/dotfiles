@@ -13,8 +13,7 @@
 #    pager = delta
     autocrlf = input
     whitespace = fix
-  excludefile = ~/.globalgitignore
-	excludesFile = /Users/wj10237/.globalgitignore
+    excludesFile = ~/.globalgitignore
 
 [color]
     ui = auto
